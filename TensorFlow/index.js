@@ -17,24 +17,24 @@ cocoSsd.load().then(async (model) => {
   // キャンバスにイメージを描写させてる
   context.drawImage(img, 0, 0, img.width, img.height);
   // 文字の大きさなど
-  context.font = "10px Arial";
+  // context.font = "10px Arial";
 
   console.log("number of detections: ", predictions.length);
 
   // ループ処理？キャンバスの機能を使って表示させてるらしい？
   for (const p of predictions) {
-    if (p.class === "person") {
-      context.beginPath();
-      context.rect(...p.bbox);
-      context.lineWidth = 1;
-      context.strokeStyle = "green";
-      context.fillStyle = "green";
-      context.stroke();
-      context.fillText(
-        p.score.toFixed(3) + " " + p.class,
-        p.bbox[0],
-        p.bbox[1] > 10 ? p.bbox[1] - 5 : 10
-      );
-    }
+    // if (p.class === "dining table") {
+			context.beginPath();
+			context.rect(...p.bbox);
+			// context.lineWidth = 1;
+			// context.strokeStyle = "green";
+			// context.fillStyle = "green";
+			context.stroke();
+			// context.fillText(
+			// 	p.score.toFixed(3) + " " + p.class,
+			// 	p.bbox[0],
+			// 	p.bbox[1] > 10 ? p.bbox[1] - 5 : 10
+			// );
+		// }
   }
 });
